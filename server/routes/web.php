@@ -13,14 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Auth::routes();
+ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/library', 'LibraryController@index')->name('index');
-Route::get('/library', 'LibraryController@index')->name('index');
+// Route::get('/library', 'LibraryController@index')->name('index');
+Route::group(['middleware' => 'auth'], function() {
+    Route::resource('library', 'LibraryController');
+});
 
-Route::resource('library', 'LibraryController');
+// Route::resource('library', 'LibraryController');

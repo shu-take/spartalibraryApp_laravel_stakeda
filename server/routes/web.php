@@ -21,5 +21,6 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/library', 'LibraryController@index')->name('index');
+Route::get('/library', 'LibraryController@index')->name('index');
 
 Route::resource('library', 'LibraryController');

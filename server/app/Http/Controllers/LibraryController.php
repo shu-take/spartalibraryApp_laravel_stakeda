@@ -35,42 +35,42 @@ class LibraryController extends Controller
 
     public function index()
     {
-        $data = []; 
-        $items = null;
-        $request = "9784798060996";
+        // $data = []; 
+        // $items = null;
+        // $request = "9784798060996";
 
-        if (!empty($request))
-        {
-            // 検索キーワードあり
+        // if (!empty($request))
+        // {
+        //     // 検索キーワードあり
 
-            // 日本語で検索するためにURLエンコードする
-            // $title = urlencode($request);
+        //     // 日本語で検索するためにURLエンコードする
+        //     // $title = urlencode($request);
 
-            // APIを発行するURLを生成
-            $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $request;
+        //     // APIを発行するURLを生成
+        //     $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $request;
     
-            $client = new Client();
+        //     $client = new Client();
 
-            // GETでリクエスト実行
-            $response = $client->request("GET", $url);
+        //     // GETでリクエスト実行
+        //     $response = $client->request("GET", $url);
     
-            $body = $response->getBody();
+        //     $body = $response->getBody();
             
-            // レスポンスのJSON形式を連想配列に変換
-            $bodyArray = json_decode($body, true);
-            // 書籍情報部分を取得
-            $items = $bodyArray['items'];
+        //     // レスポンスのJSON形式を連想配列に変換
+        //     $bodyArray = json_decode($body, true);
+        //     // 書籍情報部分を取得
+        //     $items = $bodyArray['items'];
 
-            // レスポンスの中身を見る
-            // dd($items);
-        }
+        //     // レスポンスの中身を見る
+        //     // dd($items);
+        // }
 
-        $data = [
-            'items' => $items,
-            'keyword' => $request,
-        ];
+        // $data = [
+        //     'items' => $items,
+        //     'keyword' => $request,
+        // ];
 
-        return view('library/index', $data);
+        return view('library/index');
     }
 
     public function create()
@@ -94,25 +94,20 @@ class LibraryController extends Controller
                 $book['img_url'] = $bodyArray['items'][0]['volumeInfo']["imageLinks"]["thumbnail"];
                 $book['error'] = null;
                 return view('library.confirm',compact('book'));
+            } else {
+                $book['error'] = "無効なISBNです";
+                return view('library.confirm',compact('book'));
             }
-            $book['error'] = "無効なisbnです";
-            return view('library.confirm',compact('book'));    
         } else {
-            $book['error'] = "Isbnが空です";
-            return view('library.confrim',compact('book'));
+            $book['error'] = "ISBNが空です";
+            return view('library.confirm',compact('book'));
         }
-
-
-        // return view('library.store');
     }
+
     public function store(Request $request)
     {
         $disk = Storage::disk('public');
         $book = new Book; 
-
-        // $title = $request->title;
-        // $contents = $request->contents;
-        // $isbn = $request->isbn;
 
         $img =  file_get_contents($request->img_url);
         $img_dir = 'book';
@@ -127,8 +122,11 @@ class LibraryController extends Controller
         $book->contents = $request->contents;
         $book->isbn = $request->isbn;
         $book->img_path = $img_path;
-
-        $book->save();
+        $book->img_path = $img_path;
+        $book->timestamps = false;
         
+        $book->save();
+
+        return redirect('library');
     }
 }

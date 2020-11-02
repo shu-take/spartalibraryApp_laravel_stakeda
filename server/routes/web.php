@@ -27,6 +27,9 @@ Route::get('/library/create', 'LibraryController@create')->name('create');
 // Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
 Route::post('library/confirm', 'LibraryController@confirm')->name('confirm');
 Route::post('library/store', 'LibraryController@store')->name('store');
+Route::get('/library/code', 'CodeController@codeindex')->name('codeindex');
+Route::post('/library/code/create', 'CodeController@codecreate')->name('codecreate');
+
 // Route::post('/library', 'LibraryController@store');
 // Route::group(['middleware' => 'auth'], function() {
 //     Route::resource('library', 'LibraryController');

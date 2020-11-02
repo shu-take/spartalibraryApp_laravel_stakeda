@@ -23,12 +23,15 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Add Book') }}</div>
+                <div class="card-header">{{ __('Add Code') }}</div>
                 <div class="card-body">
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('confirm') }}" >
+                    <form class="form-block my-2 my-lg-2" method="POST" action="{{ route('codecreate') }}" >
                         @csrf
-                        <input class="form-control mr-sm-2" type="text" name="isbn" placeholder="ISBN">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
+                        <input class="form-control mr-sm-2 mb-2" type="text" name="title" placeholder="TITLE">
+                        <textarea class="form-control mr-sm-2 mb-2" rows="3" name="contens" placeholder="CONTENS"></textarea>
+                        <textarea class="form-control mr-sm-2 mb-2" rows="20" name="code" placeholder="CODE"></textarea>
+                        {{-- <textarea id="tinymce" name="code" placeholder="CODE"></textarea> --}}
+                        <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Add</button>
                     </form>
                 </div>
             </div>

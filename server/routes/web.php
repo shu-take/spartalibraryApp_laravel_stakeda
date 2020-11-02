@@ -24,7 +24,8 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/library', 'LibraryController@index')->name('index');
 Route::get('/library/create', 'LibraryController@create')->name('create');
-Route::get('/library/store', 'LibraryController@store')->name('store');
+// Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
+Route::post('library/confirm', 'LibraryController@confirm')->name('confirm');
 Route::post('library/store', 'LibraryController@store')->name('store');
 // Route::post('/library', 'LibraryController@store');
 // Route::group(['middleware' => 'auth'], function() {

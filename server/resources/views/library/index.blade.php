@@ -99,11 +99,6 @@
                         }
                     </code>
                 </pre>
-                <pre class="prettyprint linenums">
-                    <code>
-                        {{ $test }}
-                    </code>
-                </pre>
         </div>
     </div>
 </div>

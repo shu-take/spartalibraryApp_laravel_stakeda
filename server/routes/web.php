@@ -22,13 +22,15 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/library', 'LibraryController@index')->name('index');
-Route::get('/library/create', 'LibraryController@create')->name('create');
+// Route::get('/library', 'LibraryController@index')->name('index');
+Route::get('/library', 'BookController@bookindex')->name('bookindex');
+// Route::get('/library/create', 'LibraryController@create')->name('create');
 // Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
-Route::post('library/confirm', 'LibraryController@confirm')->name('confirm');
-Route::post('library/store', 'LibraryController@store')->name('store');
+Route::post('library/book/create', 'BookController@bookcreate')->name('bookcreate');
+Route::post('library/book/store', 'BookController@bookstore')->name('bookstore');
 Route::get('/library/code', 'CodeController@codeindex')->name('codeindex');
 Route::post('/library/code/create', 'CodeController@codecreate')->name('codecreate');
+Route::get('/library/code/show/{user_id}', 'CodeController@codeshow')->name('codeshow');
 
 // Route::post('/library', 'LibraryController@store');
 // Route::group(['middleware' => 'auth'], function() {

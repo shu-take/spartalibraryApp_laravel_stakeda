@@ -19,6 +19,7 @@
 @endsection
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -27,7 +28,7 @@
                 <div class="card-body">
                     <form class="form-block my-2 my-lg-2" method="POST" action="{{ route('codecreate') }}" >
                         @csrf
-                        <pre class="prettyprint linenums">{{ $code }}</pre>
+                        <pre class="prettyprint linenums"><code>{{ $code }}</code></pre>
                         <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Add</button>
                     </form>
                 </div>

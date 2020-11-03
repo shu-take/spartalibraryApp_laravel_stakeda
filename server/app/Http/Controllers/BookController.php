@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Library;
 use App\Book;
-
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
 
 
 
-
-class LibraryController extends Controller
+class BookController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,7 +20,6 @@ class LibraryController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Show the application dashboard.
      *
@@ -35,52 +31,11 @@ class LibraryController extends Controller
     //     return view('library/index', compact('user'));
     // }
 
-    public function index()
+    public function bookindex()
     {
-        // $data = []; 
-        // $items = null;
-        // $request = "9784798060996";
-
-        // if (!empty($request))
-        // {
-        //     // 検索キーワードあり
-
-        //     // 日本語で検索するためにURLエンコードする
-        //     // $title = urlencode($request);
-
-        //     // APIを発行するURLを生成
-        //     $url = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $request;
-    
-        //     $client = new Client();
-
-        //     // GETでリクエスト実行
-        //     $response = $client->request("GET", $url);
-    
-        //     $body = $response->getBody();
-            
-        //     // レスポンスのJSON形式を連想配列に変換
-        //     $bodyArray = json_decode($body, true);
-        //     // 書籍情報部分を取得
-        //     $items = $bodyArray['items'];
-
-        //     // レスポンスの中身を見る
-        //     // dd($items);
-        // }
-
-        // $data = [
-        //     'items' => $items,
-        //     'keyword' => $request,
-        // ];
-
-        return view('library/index');
+        return view('library.bookindex');
     }
-
-    public function create()
-    {
-        return view('library.create');
-    }
-
-    public function confirm(Request $request)
+    public function bookcreate(Request $request)
     {
         $isbn = $request->isbn;
         if (!empty($isbn)) {
@@ -95,18 +50,18 @@ class LibraryController extends Controller
                 $book['isbn'] = $bodyArray['items'][0]['volumeInfo']['industryIdentifiers'][0]['identifier'];
                 $book['img_url'] = $bodyArray['items'][0]['volumeInfo']["imageLinks"]["thumbnail"];
                 $book['error'] = null;
-                return view('library.confirm',compact('book'));
+                return view('library.bookcreate',compact('book'));
             } else {
                 $book['error'] = "無効なISBNです";
-                return view('library.confirm',compact('book'));
+                return view('library.bookcreate',compact('book'));
             }
         } else {
             $book['error'] = "ISBNが空です";
-            return view('library.confirm',compact('book'));
+            return view('library.bookcreate',compact('book'));
         }
     }
 
-    public function store(Request $request)
+    public function bookstore(Request $request)
     {
         $disk = Storage::disk('public');
         $book = new Book; 
@@ -131,4 +86,5 @@ class LibraryController extends Controller
 
         return redirect('library');
     }
+
 }

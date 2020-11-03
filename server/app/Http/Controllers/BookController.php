@@ -6,7 +6,7 @@ use App\Book;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Auth;
 
 
 class BookController extends Controller
@@ -33,6 +33,8 @@ class BookController extends Controller
 
     public function bookindex()
     {
+        // $user_id = Auth::id();
+        // $codes = Code::where('user_id', '=', $user_id)->get();
         return view('library.bookindex');
     }
     public function bookcreate(Request $request)

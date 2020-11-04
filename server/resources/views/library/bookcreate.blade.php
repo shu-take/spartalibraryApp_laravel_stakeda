@@ -29,7 +29,11 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
                     <div class="card-body">
                         <h3>{{ $book['title'] }}</h3>
-                        <img src="{{ $book['img_url'] }}"><br>
+                        @if ($book['img_url'])
+                            <img src="{{ $book['img_url'] }}"><br>
+                        @elseif ($book['img_path'])
+                            <img src="{{ url($book['img_path']) }}"><br>
+                        @endif
                         <p>概要:{{ $book['contents'] }}</p>
                         <p>ISBN:{{ $book['isbn'] }}</p>
                         <div class="" id="">
@@ -39,6 +43,8 @@
                                 <input type="hidden" name="contents" value="{{ $book['contents'] }}">
                                 <input type="hidden" name="isbn" value="{{ $book['isbn'] }}">
                                 <input type="hidden" name="img_url" value="{{ $book['img_url'] }}">
+                                <input type="hidden" name="img_path" value="{{ $book['img_path'] }}">
+                                <input type="hidden" name="book_id" value="{{ $book['book_id'] }}">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
                             </form>
                         </div>

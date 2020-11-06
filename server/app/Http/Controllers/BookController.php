@@ -34,8 +34,28 @@ class BookController extends Controller
 
     public function bookindex()
     {
-        return view('library.bookindex');
+        // $test = User_book::all->book;
+        // var_dump($test->title);
+        
+        // $test = User_book::all()->book;
+        // // var_dump($test->post->title);
+        $user_id = Auth::id();
+        $user_books = User_book::where('user_id', '=', $user_id)->get();
+        // $lists = User_book::all();
+        // $test = $lists->book;
+
+
+        return view('library.bookindex', compact('user_books'));
     }
+
+    public function bookshow($book_id)
+    {
+        
+        $book = Book::find($book_id);
+        return view('library.bookshow', compact('book'));
+    }
+
+
     public function bookcreate(Request $request)
     {
         $isbn = $request->isbn;

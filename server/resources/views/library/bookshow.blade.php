@@ -22,22 +22,21 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-2">
-                <div class="card-header">{{ __('Add Book') }}</div>
-                <div class="card-body">
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookcreate') }}" >
-                        @csrf
-                        <input class="form-control mr-sm-2" type="text" name="isbn" placeholder="ISBN">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add</button>
-                    </form>
-                </div>
-            </div>
             <div class="card">
-                <div class="card-header">{{ __('Index Book') }}</div>
+                <div class="card-header">{{ __('Show Book') }}</div>
                 <ul class="list-group list-group-flush">
-                    @foreach ($user_books as $user_book)
-                        <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}{{ $user_book->book->id }}</a></li>
-                    @endforeach
+                    <li class="list-group-item">
+                        <h5 class="card-title">Book Title</h5>
+                        {{ $book->title }}
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Book Contents</h5>
+                        {{ $book->contents }}
+                    </li>
+                    <li class="list-group-item">
+                        <h5 class="card-title">Book Image</h5>
+                        <img src="{{ url($book->img_path) }}"><br>
+                    </li>
                 </ul>
             </div>
         </div>

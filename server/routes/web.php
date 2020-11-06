@@ -24,6 +24,7 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 // Route::get('/library', 'LibraryController@index')->name('index');
 Route::get('/library', 'BookController@bookindex')->name('bookindex');
+Route::get('/library/book/show/{book_id}', 'BookController@bookshow')->name('bookshow');
 // Route::get('/library/create', 'LibraryController@create')->name('create');
 // Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
 Route::post('library/book/create', 'BookController@bookcreate')->name('bookcreate');

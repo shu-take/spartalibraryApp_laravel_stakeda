@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Code;
+use App\Book;
+use App\User_book;
 use Illuminate\Support\Facades\Auth;
 
 class CodeController extends Controller
@@ -12,7 +14,8 @@ class CodeController extends Controller
     {
         $user_id = Auth::id();
         $codes = Code::where('user_id', '=', $user_id)->get();
-        return view('library.codeindex', compact('codes'));
+        $user_books = User_book::where('user_id', '=', $user_id)->get();
+        return view('library.codeindex', compact('codes','user_books'));
     }
     public function codecreate(Request $request)
     {

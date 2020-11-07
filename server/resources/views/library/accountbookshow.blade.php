@@ -50,33 +50,18 @@
                 </div>
             </div>
             <div class="card mb-2">
-                <div class="card-header">{{ __('Show Book') }}</div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <h5 class="card-title">Book Title</h5>
-                        {{ $book->title }}
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="card-title">Book Contents</h5>
-                        {{ $book->contents }}
-                    </li>
-                    <li class="list-group-item">
-                        <h5 class="card-title">Book Image</h5>
-                        <img src="{{ url($book->img_path) }}"><br>
-                    </li>
-                </ul>
-            </div>
-
-            {{-- <div class="card">
-                <div class="card-header">{{ __('Index book') }}</div>
-                
-                    <ul class="list-group list-group-flush">
-                        @foreach ($user_books as $user_book)
-                            <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}{{ $user_book->book->id }}</a></li>
-                        @endforeach
-                    </ul>
+                <div class="card-header">{{ __('Book details') }}</div>
+                <div class="card-body">
+                        <h3>{{ $book['title'] }}</h3>
+                        @if ($book['img_url'])
+                            <img src="{{ $book['img_url'] }}"><br>
+                        @elseif ($book['img_path'])
+                            <img src="{{ url($book['img_path']) }}"><br>
+                        @endif
+                        <p>概要:{{ $book['contents'] }}</p>
+                        <p>ISBN:{{ $book['isbn'] }}</p>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 </div>

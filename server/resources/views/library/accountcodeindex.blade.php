@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Index code') }}</div>
+                <div class="card-header">{{ __('Code list') }}</div>
                     <ul class="list-group list-group-flush">
                         @foreach ($codes as $code)
                             <li class="list-group-item"><a href="{{ route('accountcodeshow', ['user_id' => $user_id, 'code_id' => $code->id]) }}" class="card-text">{{ $code->title }}</a></li>

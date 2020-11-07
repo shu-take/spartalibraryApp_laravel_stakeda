@@ -30,7 +30,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mb-2">
-                <div class="card-header">{{ __('Add Code') }}</div>
+                <div class="card-header">{{ __('Code add') }}</div>
                 <div class="card-body">
                     <form class="form-block my-2 my-lg-2" method="POST" action="{{ route('codecreate') }}" >
                         @csrf
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Index Code') }}</div>
+                <div class="card-header">{{ __('Code list') }}</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($codes as $code)
                         <li class="list-group-item"><a href="{{ route('codeshow', $code->id) }}" class="card-text">{{ $code->title }}</a></li>

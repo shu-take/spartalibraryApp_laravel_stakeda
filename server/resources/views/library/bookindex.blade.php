@@ -31,7 +31,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mb-2">
-                <div class="card-header">{{ __('Add Book') }}</div>
+                <div class="card-header">{{ __('Book add') }}</div>
                 <div class="card-body">
                     <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookcreate') }}" >
                         @csrf
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Index Book') }}</div>
+                <div class="card-header">{{ __('Book list') }}</div>
                     <ul class="list-group list-group-flush">
                         @foreach ($user_books as $user_book)
                             <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}</a></li>

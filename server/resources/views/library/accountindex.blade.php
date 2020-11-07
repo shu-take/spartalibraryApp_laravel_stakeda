@@ -31,7 +31,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card mb-2">
-                <div class="card-header">{{ __('Index Account') }}</div>
+                <div class="card-header">{{ __('Account search') }}</div>
                 <div class="card-body">
                     <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('accountindex') }}" >
                         @csrf
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Index Account') }}</div>
+                <div class="card-header">{{ __('Account list') }}</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($users as $user)
                         <li class="list-group-item"><a href="{{ route('accountbookindex', $user->id)}}" class="card-text">{{ $user->name }}</a></li>

@@ -50,14 +50,14 @@
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">{{ __('Show Code') }}</div>
+                <div class="card-header">{{ __('Code details') }}</div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
-                        <h5 class="card-title">Code Title</h5>
+                        <h6 class="card-title">【Code Title】</h6>
                         {{ $code->title }}
                     </li>
                     <li class="list-group-item">
-                        <h5 class="card-title">Code Contents</h5>
+                        <h6 class="card-title">【Code Contents】</h6>
                         {{ $code->contents }}
                     </li>
                     <li class="list-group-item">

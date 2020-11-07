@@ -48,11 +48,11 @@
                         </button>
                     </a>
                 </div>
-                <div class="card-header">{{ __('Index book') }}</div>
+                <div class="card-header">{{ __('Index code') }}</div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        @foreach ($user_books as $user_book)
-                            <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}{{ $user_book->book->id }}</a></li>
+                        @foreach ($codes as $code)
+                            <li class="list-group-item"><a href="{{ route('codeshow', $code->id) }}" class="card-text">{{ $code->title }}{{ $code->id }}</a></li>
                         @endforeach
                     </ul>
                 </div>

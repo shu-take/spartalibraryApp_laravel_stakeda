@@ -32,7 +32,7 @@ class AccountController extends Controller
         // $codes = Code::where('user_id', '=', $user_id)->get();
         $codes = Code::where('user_id', '=', $user_id)->get();
         $user_name = $user['name'];
-        // return view('library.accountbookshow',compact('user_id','user_name', 'user_books'));
+        return view('library.accountcodeshow',compact('user_id','user_name', 'codes'));
     }
 
 }

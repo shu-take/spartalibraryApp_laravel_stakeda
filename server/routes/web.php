@@ -34,6 +34,7 @@ Route::post('/library/code/create', 'CodeController@codecreate')->name('codecrea
 Route::get('/library/code/show/{user_id}', 'CodeController@codeshow')->name('codeshow');
 Route::get('/library/account', 'AccountController@accountindex')->name('accountindex');
 Route::get('/library/account/bookshow/{user_id}', 'AccountController@accountbookshow')->name('accountbookshow');
+Route::get('/library/account/codeshow/{user_id}', 'AccountController@accountcodeshow')->name('accountcodeshow');
 
 // Route::post('/library', 'LibraryController@store');
 // Route::group(['middleware' => 'auth'], function() {

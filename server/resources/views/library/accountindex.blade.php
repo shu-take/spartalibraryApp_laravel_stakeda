@@ -33,9 +33,9 @@
             <div class="card mb-2">
                 <div class="card-header">{{ __('Index Account') }}</div>
                 <div class="card-body">
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookcreate') }}" >
+                    <form class="form-inline my-2 my-lg-0" method="GET" action="{{ route('accountindex') }}" >
                         @csrf
-                        <input class="form-control mr-sm-2" type="text" name="account_name" placeholder="ACCOUNT NAME">
+                        <input class="form-control mr-sm-2" type="text" name="name" placeholder="ACCOUNT NAME">
                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                     </form>
                 </div>
@@ -44,7 +44,7 @@
                 <div class="card-header">{{ __('Index Account') }}</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($users as $user)
-                        <li class="list-group-item"><a href="{{ route('accountbookindex', $user->id)}}" class="card-text">{{ $user->name }}{{ $user->id }}</a></li>
+                        <li class="list-group-item"><a href="{{ route('accountbookindex', $user->id)}}" class="card-text">{{ $user->name }}</a></li>
                     @endforeach
                 </ul>
             </div>

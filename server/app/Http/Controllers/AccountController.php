@@ -12,8 +12,15 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
-    public function accountindex(){
-        $users = User::all();
+    public function accountindex(Request $request){
+        $name = $request->name;
+        $query = User::query();
+        if(!empty($name)) {
+            $query->where('name', 'like', '%' . $name . '%');
+        } else {
+            $users = User::all();
+        }
+        $users = $query->paginate();
         return view('library.accountindex',compact('users'));
     }
 

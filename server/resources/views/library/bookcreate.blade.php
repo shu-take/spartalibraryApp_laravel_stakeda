@@ -41,7 +41,7 @@
                         @elseif ($book['img_path'])
                             <img src="{{ url($book['img_path']) }}"><br>
                         @endif
-                        <p>概要:{{ $book['contents'] }}</p>
+                        <p>{{ $book['contents'] }}</p>
                         <p>ISBN:{{ $book['isbn'] }}</p>
                         <div class="" id="">
                             <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookstore') }}" enctype="multipart/form-data" >

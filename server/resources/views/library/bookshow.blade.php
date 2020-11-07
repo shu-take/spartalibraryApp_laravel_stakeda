@@ -38,8 +38,14 @@
                     @elseif ($book['img_path'])
                         <img src="{{ url($book['img_path']) }}"><br>
                     @endif
-                    <p>概要:{{ $book['contents'] }}</p>
+                    <p>{{ $book['contents'] }}</p>
                     <p>ISBN:{{ $book['isbn'] }}</p>
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookdestroy') }}" >
+                        @csrf
+                        {{-- @method('DELETE') --}}
+                        <input type="hidden" name="book_id" value="{{ $book['id'] }}">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
+                    </form>
                 </div>
             </div>
             <div class="card">

@@ -29,6 +29,7 @@ Route::get('/library/book/show/{book_id}', 'BookController@bookshow')->name('boo
 // Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
 Route::post('library/book/create', 'BookController@bookcreate')->name('bookcreate');
 Route::post('library/book/store', 'BookController@bookstore')->name('bookstore');
+Route::post('library/book/delete', 'bookController@bookdestroy')->name('bookdestroy');
 Route::get('/library/code', 'CodeController@codeindex')->name('codeindex');
 Route::post('/library/code/create', 'CodeController@codecreate')->name('codecreate');
 Route::get('/library/code/show/{user_id}', 'CodeController@codeshow')->name('codeshow');

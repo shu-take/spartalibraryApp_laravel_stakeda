@@ -52,8 +52,11 @@ class AccountController extends Controller
     {
         $user = User::find($user_id);
         $code = Code::find($code_id);
+        $code_book = Code_book::where('code_id', '=', $code_id)->get();
+        $book_id = $code_book[0]['book_id'];
+        $book = Book::find($book_id);
         $user_name = $user['name'];
-        return view('library.accountcodeshow', compact('user_id', 'user_name','code'));
+        return view('library.accountcodeshow', compact('user_id', 'user_name','code','book'));
     }
 
 

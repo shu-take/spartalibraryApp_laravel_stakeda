@@ -35,35 +35,27 @@ class BookController extends Controller
 
     public function bookindex()
     {
-        // $test = User_book::all->book;
-        // var_dump($test->title);
-        
-        // $test = User_book::all()->book;
-        // // var_dump($test->post->title);
         $user_id = Auth::id();
         $user_books = User_book::where('user_id', '=', $user_id)->get();
-        // $lists = User_book::all();
-        // $test = $lists->book;
-
 
         return view('library.bookindex', compact('user_books'));
     }
 
     public function bookshow($book_id)
     {
-        
         $book = Book::find($book_id);
-
         $code_books = Code_book::where('book_id', '=', $book_id)->get();
-
-        // foreach ($code_books as $code_book)
-        // {
-        //     echo $code_book->code->title;
-        // }
-
         return view('library.bookshow', compact('book','code_books'));
     }
 
+    public function bookdestroy(Request $request)
+    {
+        $user_id = Auth::id();
+        $book_id = $request->book_id;
+        $user_book = User_book::where('user_id', '=', $user_id)->where('book_id', '=', $book_id);
+        $user_book->delete();
+        return redirect('library');
+    }
 
     public function bookcreate(Request $request)
     {

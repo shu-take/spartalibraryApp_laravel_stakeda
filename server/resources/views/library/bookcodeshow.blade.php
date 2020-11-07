@@ -29,31 +29,20 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-2">
-                <div class="card-header">{{ __('Book details') }}</div>
-                <div class="card-body">
-                    <h3>{{ $book['title'] }}</h3>
-                    @if ($book['img_url'])
-                        <img src="{{ $book['img_url'] }}"><br>
-                    @elseif ($book['img_path'])
-                        <img src="{{ url($book['img_path']) }}"><br>
-                    @endif
-                    <p>{{ $book['contents'] }}</p>
-                    <p>ISBN:{{ $book['isbn'] }}</p>
-                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookdestroy') }}" >
-                        @csrf
-                        {{-- @method('DELETE') --}}
-                        <input type="hidden" name="book_id" value="{{ $book['id'] }}">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
-                    </form>
-                </div>
-            </div>
             <div class="card">
-                <div class="card-header">{{ __('Code list') }}</div>
+                <div class="card-header">{{ __('Code details') }}</div>
                 <ul class="list-group list-group-flush">
-                    @foreach ($code_books as $code_book)
-                        <li class="list-group-item"><a href="{{ route('bookcodeshow', $code_book->code->id) }}" class="card-text">{{ $code_book->code->title }}</a></li>
-                    @endforeach
+                    <li class="list-group-item">
+                        <h6 class="card-title">【Code title】</h6>
+                        {{ $code->title }}
+                    </li>
+                    <li class="list-group-item">
+                        <h6 class="card-title">【Code contents】</h6>
+                        {{ $code->contents }}
+                    </li>
+                    <li class="list-group-item">
+                        <pre class="prettyprint linenums"><code>{{ $code->code }}</code></pre>
+                    </li>
                 </ul>
             </div>
         </div>

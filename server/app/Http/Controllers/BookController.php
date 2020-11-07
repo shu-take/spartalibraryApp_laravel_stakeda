@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Code;
 use App\User_book;
 use App\Code_book;
 use Illuminate\Http\Request;
@@ -47,6 +48,13 @@ class BookController extends Controller
         $code_books = Code_book::where('book_id', '=', $book_id)->get();
         return view('library.bookshow', compact('book','code_books'));
     }
+
+    public function bookcodeshow($user_id)
+    {
+        $code = Code::find($user_id);
+        return view('library.bookcodeshow', compact('code'));
+    }
+
 
     public function bookdestroy(Request $request)
     {

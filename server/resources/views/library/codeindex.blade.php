@@ -27,7 +27,7 @@
                 <div class="card-body">
                     <form class="form-block my-2 my-lg-2" method="POST" action="{{ route('codecreate') }}" >
                         @csrf
-                        <select name="book_id">
+                        <select class="form-control mr-sm-2 mb-2" name="book_id">
                             @foreach ($user_books as $user_book)
                                 <option value="{{ $user_book->book->id }}">{{ $user_book->book->title }}</option>
                             @endforeach

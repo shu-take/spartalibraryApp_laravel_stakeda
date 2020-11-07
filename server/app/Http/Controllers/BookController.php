@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\User_book;
+use App\Code_book;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Storage;
@@ -52,7 +53,16 @@ class BookController extends Controller
     {
         
         $book = Book::find($book_id);
-        return view('library.bookshow', compact('book'));
+        echo $book->id;
+
+        $code_books = Code_book::where('book_id', '=', $book_id)->get();
+
+        // foreach ($code_books as $code_book)
+        // {
+        //     echo $code_book->code->title;
+        // }
+
+        return view('library.bookshow', compact('book','code_books'));
     }
 
 

@@ -16,8 +16,6 @@ class CodeController extends Controller
         $user_id = Auth::id();
         $codes = Code::where('user_id', '=', $user_id)->get();
         $user_books = User_book::where('user_id', '=', $user_id)->get();
-        // $code_books = Code_book::where('user_id', '=', $user_id)->get();
-
 
         return view('library.codeindex', compact('codes','user_books'));
     }
@@ -43,6 +41,16 @@ class CodeController extends Controller
     {
         $code = Code::find($user_id);
         return view('library.codeshow', compact('code'));
+    }
+
+    public function codedestroy(Request $request)
+    {
+        $code_id = $request['code_id'];
+        $code = Code::find($code_id);
+        $code_book = Code_book::where('code_id', '=', $code_id);
+        $code->delete();
+        $code_book->delete();
+        return redirect('library/code');
     }
 
 }

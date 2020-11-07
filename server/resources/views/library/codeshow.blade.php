@@ -44,6 +44,14 @@
                         <pre class="prettyprint linenums"><code>{{ $code->code }}</code></pre>
                     </li>
                 </ul>
+                <div class="card-body">
+                    <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('codedestroy') }}" >
+                        @csrf
+                        {{-- @method('DELETE') --}}
+                        <input type="hidden" name="code_id" value="{{ $code->id }}">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

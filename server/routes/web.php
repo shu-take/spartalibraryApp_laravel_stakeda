@@ -32,6 +32,7 @@ Route::post('library/book/store', 'BookController@bookstore')->name('bookstore')
 Route::get('/library/code', 'CodeController@codeindex')->name('codeindex');
 Route::post('/library/code/create', 'CodeController@codecreate')->name('codecreate');
 Route::get('/library/code/show/{user_id}', 'CodeController@codeshow')->name('codeshow');
+Route::post('library/code/delete', 'CodeController@codedestroy')->name('codedestroy');
 Route::get('/library/account', 'AccountController@accountindex')->name('accountindex');
 Route::get('/library/account/bookindex/{user_id}', 'AccountController@accountbookindex')->name('accountbookindex');
 Route::get('/library/account/codeindex/{user_id}', 'AccountController@accountcodeindex')->name('accountcodeindex');

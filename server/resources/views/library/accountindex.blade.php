@@ -44,7 +44,7 @@
                 <div class="card-header">{{ __('Index Account') }}</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($users as $user)
-                        <li class="list-group-item"><a href="{{ route('accountbookshow', $user->id)}}" class="card-text">{{ $user->name }}{{ $user->id }}</a></li>
+                        <li class="list-group-item"><a href="{{ route('accountbookindex', $user->id)}}" class="card-text">{{ $user->name }}{{ $user->id }}</a></li>
                     @endforeach
                 </ul>
             </div>

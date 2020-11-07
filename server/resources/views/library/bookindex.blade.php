@@ -42,11 +42,12 @@
             </div>
             <div class="card">
                 <div class="card-header">{{ __('Index Book') }}</div>
-                <ul class="list-group list-group-flush">
-                    @foreach ($user_books as $user_book)
-                        <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}{{ $user_book->book->id }}</a></li>
-                    @endforeach
-                </ul>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($user_books as $user_book)
+                            <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}</a></li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

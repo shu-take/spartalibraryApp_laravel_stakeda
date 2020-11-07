@@ -50,8 +50,7 @@
                 <div class="card-header">{{ __('Index Code') }}</div>
                 <ul class="list-group list-group-flush">
                     @foreach ($code_books as $code_book)
-                        {{-- <li class="list-group-item"><a href="{{ route('bookshow', $user_book->book->id) }}" class="card-text">{{ $user_book->book->title }}{{ $user_book->book->id }}</a></li> --}}
-                        <li class="list-group-item"><a href="{{ route('codeshow', $code_book->code->id) }}" class="card-text">{{ $code_book->code->title }}{{ $code_book->code->id }}</a></li>
+                        <li class="list-group-item"><a href="{{ route('codeshow', $code_book->code->id) }}" class="card-text">{{ $code_book->code->title }}</a></li>
                     @endforeach
                 </ul>
             </div>

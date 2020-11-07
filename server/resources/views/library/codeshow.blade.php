@@ -29,24 +29,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            {{-- <div class="card mb-2">
-                <div class="card-header">{{ __('Add Code') }}</div>
-                <div class="card-body">
-                    <form class="form-block my-2 my-lg-2" method="POST" action="{{ route('codecreate') }}" >
-                        @csrf
-                        <input class="form-control mr-sm-2 mb-2" type="text" name="title" placeholder="TITLE">
-                        <textarea class="form-control mr-sm-2 mb-2" type="text" rows="3" name="contents" placeholder="CONTENTS"></textarea>
-                        <textarea class="form-control mr-sm-2 mb-2" type="text" rows="10" name="code" placeholder="CODE"></textarea>
-                        <button class="btn btn-outline-success my-2 my-sm-2" type="submit">Add</button>
-                    </form>
-                </div>
-            </div> --}}
             <div class="card">
                 <div class="card-header">{{ __('Show Code') }}</div>
                 <ul class="list-group list-group-flush">
-                    {{-- @foreach ($codes as $code)
-                        <li class="list-group-item"><a href="{{ route('codeshow', $code->id) }}" class="card-text">{{ $code->title }}{{ $code->id }}</a></li>
-                    @endforeach --}}
                     <li class="list-group-item">
                         <h5 class="card-title">Code Title</h5>
                         {{ $code->title }}

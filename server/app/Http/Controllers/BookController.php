@@ -53,7 +53,6 @@ class BookController extends Controller
     {
         
         $book = Book::find($book_id);
-        echo $book->id;
 
         $code_books = Code_book::where('book_id', '=', $book_id)->get();
 
@@ -96,9 +95,7 @@ class BookController extends Controller
                     return view('library.bookcreate',compact('book'));
                 }
             } else {
-                echo "もうある";
                 $test = mb_strlen($book_all[0]['isbn']);
-                echo $test;
                 $book['title'] = $book_all[0]['title'];
                 $book['contents'] = $book_all[0]['contents'];
                 $book['isbn'] = $book_all[0]['isbn'];
@@ -164,29 +161,6 @@ class BookController extends Controller
 
             return redirect('library');
         }
-
-        // $disk = Storage::disk('public');
-        // $book = new Book; 
-
-        // $img =  file_get_contents($request->img_url);
-        // $img_dir = 'book';
-        // $img_head = 'storage/';
-        // $img_extension = '.jpg';
-        // $img_filename = $request->isbn.$img_extension;
-        // $imgfile = sprintf('%s/%s', $img_dir, $img_filename);
-        // $disk->put($imgfile, $img);
-        // $img_path = $img_head.$imgfile;
-
-        // $book->title = $request->title;
-        // $book->contents = $request->contents;
-        // $book->isbn = $request->isbn;
-        // $book->img_path = $img_path;
-        // $book->img_path = $img_path;
-        // $book->timestamps = false;
-        
-        // $book->save();
-
-        // return redirect('library');
     }
 
 }

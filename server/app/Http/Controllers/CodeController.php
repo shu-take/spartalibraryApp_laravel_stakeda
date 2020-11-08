@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CodeRequest;
 use App\Code;
 use App\Book;
 use App\User_book;
@@ -19,7 +20,7 @@ class CodeController extends Controller
 
         return view('library.codeindex', compact('codes','user_books'));
     }
-    public function codecreate(Request $request)
+    public function codecreate(CodeRequest $request)
     {
         $code = new Code;
         $code->title = $request->title;

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Code extends Model
 {
-    public function code(){
-        return $this->hasMany('App\Code_book');
+    public function code_book(){
+        return $this->hasOne('App\Code_book');
     }
 }

@@ -41,6 +41,10 @@
                         {{ $code->contents }}
                     </li>
                     <li class="list-group-item">
+                        <h6 class="card-title">【Book title】</h6>
+                        {{ $code->code_book->book->title }}
+                    </li>
+                    <li class="list-group-item">
                         <pre class="prettyprint linenums"><code>{{ $code->code }}</code></pre>
                     </li>
                 </ul>
@@ -56,4 +60,10 @@
         </div>
     </div>
 </div>
+{{-- @foreach ($code_book as $item)
+    {{ $item->code->id }} <br>
+    {{ var_dump($item->code_book) }}   
+@endforeach --}}
+ {{-- {{ dd($code_book->code_book) }} --}}
+{{-- {{ dd($code_book) }} --}}
 @endsection

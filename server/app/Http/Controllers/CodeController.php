@@ -37,9 +37,14 @@ class CodeController extends Controller
 
         return redirect('library/code');
     }
-    public function codeshow($user_id)
+    public function codeshow($code_id)
     {
-        $code = Code::find($user_id);
+        $code = Code::find($code_id);
+        // $code_book = $code->code_book;
+        // $book = $code_book->book;
+        // dd($code,$code_book, $book);
+        // $code_book = $code->code;
+        // $code_book = Code_book::where('code_id', '=', $code->id)->get();
         return view('library.codeshow', compact('code'));
     }
 

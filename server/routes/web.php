@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,16 +21,14 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/library', 'LibraryController@index')->name('index');
 Route::get('/library', 'BookController@bookindex')->name('bookindex');
+
 Route::get('/library/book/show/{book_id}', 'BookController@bookshow')->name('bookshow');
 Route::get('/library/book/codeshow/{user_id}', 'BookController@bookcodeshow')->name('bookcodeshow');
-// Route::get('/library/create', 'LibraryController@create')->name('create');
-// Route::get('/library/confirm', 'LibraryController@confirm')->name('confirm');
+
 Route::post('library/book/create', 'BookController@bookcreate')->name('bookcreate');
 Route::post('library/book/store', 'BookController@bookstore')->name('bookstore');
-Route::post('library/book/delete', 'bookController@bookdestroy')->name('bookdestroy');
+Route::post('library/book/delete', 'BookController@bookdestroy')->name('bookdestroy');
 Route::get('/library/code', 'CodeController@codeindex')->name('codeindex');
 Route::post('/library/code/create', 'CodeController@codecreate')->name('codecreate');
 Route::get('/library/code/show/{user_id}', 'CodeController@codeshow')->name('codeshow');
@@ -41,13 +39,6 @@ Route::get('/library/account/codeindex/{user_id}', 'AccountController@accountcod
 Route::get('/library/account/bookshow/{user_id}/{book_id}','AccountController@accountbookshow')->name('accountbookshow');
 Route::get('/library/account/codeshow/{user_id}/{code_id}','AccountController@accountcodeshow')->name('accountcodeshow');
 
-// Route::post('/library', 'LibraryController@store');
-// Route::group(['middleware' => 'auth'], function() {
-//     Route::resource('library', 'LibraryController');
-// });
-
 Route::get('/', function () {
     return view('auth.login');
 });
-
-// Route::resource('library', 'LibraryController');

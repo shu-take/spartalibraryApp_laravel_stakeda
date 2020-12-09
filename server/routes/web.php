@@ -42,3 +42,7 @@ Route::get('/library/account/codeshow/{user_id}/{code_id}','AccountController@ac
 Route::get('/', function () {
     return view('auth.login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

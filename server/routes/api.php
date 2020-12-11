@@ -29,3 +29,5 @@ Route::post('/library/account/show', 'AccountController@accounshow')->name('acco
 
 Route::get('/test', 'Api\AccountController@test');
 Route::get('/test2', 'Api\AccountController@test2');
+
+Route::get('/library/book/index/{user_id}', 'Api\BookController@bookindex');

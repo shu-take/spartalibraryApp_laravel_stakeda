@@ -30,7 +30,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card mb-2">
+            <passport-clients></passport-clients>
+            <passport-authorized-clients></passport-authorized-clients>
+            <passport-personal-access-tokens></passport-personal-access-tokens>
+            <div class="card mb-2 mt-2">
                 <div class="card-header">{{ __('Book add') }}</div>
                 <div class="card-body">
                     <form class="form-inline my-2 my-lg-0" method="POST" action="{{ route('bookcreate') }}" >
@@ -40,7 +43,7 @@
                     </form>
                 </div>
             </div>
-            <div class="card">
+            <div class="card mt-2">
                 <div class="card-header">{{ __('Book list') }}</div>
                     <ul class="list-group list-group-flush">
                         @foreach ($user_books as $user_book)
@@ -49,6 +52,8 @@
                     </ul>
                 </div>
             </div>
+
+            
         </div>
     </div>
 </div>

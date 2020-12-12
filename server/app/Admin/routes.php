@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Encore\Admin\Facades\Admin;
 
 Admin::routes();
 
@@ -12,7 +15,7 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('home');
-    $router->resource('books', BookController::class);
-    $router->resource('codes', CodeController::class);
-    $router->resource('user_books', User_bookController::class);
+    // $router->resource('books', BookController::class);
+    // $router->resource('codes', CodeController::class);
+    // $router->resource('user_books', User_bookController::class);
 });

@@ -17,3 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('/test', function(){
+//     $user = App\User::find(12);
+//     $token = $user->createToken('token')->accessToken;
+//     return response()->json(['token' => $token]);
+// });
+
+Route::post('/library/account/show', 'AccountController@accounshow')->name('accountshow');
+
+Route::get('/library/book/index/{user_id}', 'Api\BookController@bookindex');
+Route::get('/library/code/index/{user_id}', 'Api\CodeController@codeindex');

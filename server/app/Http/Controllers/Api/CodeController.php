@@ -19,6 +19,7 @@ class CodeController extends Controller
             $response[$num]['code_title'] = $code->title;
             $response[$num]['code_contents'] = $code->contents;
             $response[$num]['code'] = $code->code;
+            $response[$num]['code_book'] = $code->code_book->book->title;
             $num++;
         }
         return response()->json($response);

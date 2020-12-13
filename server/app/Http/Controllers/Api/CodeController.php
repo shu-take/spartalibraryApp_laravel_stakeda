@@ -24,4 +24,5 @@ class CodeController extends Controller
         }
         return response()->json($response);
     }
+
 }

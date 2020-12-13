@@ -30,9 +30,9 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <passport-clients></passport-clients>
+            {{-- <passport-clients></passport-clients>
             <passport-authorized-clients></passport-authorized-clients>
-            <passport-personal-access-tokens></passport-personal-access-tokens>
+            <passport-personal-access-tokens></passport-personal-access-tokens> --}}
             <div class="card mb-2 mt-2">
                 <div class="card-header">{{ __('Book add') }}</div>
                 <div class="card-body">

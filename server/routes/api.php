@@ -22,3 +22,6 @@ Route::get('/library/account/index', 'Api\AccountController@accountindex');
 
 Route::get('/library/book/index/{user_id}', 'Api\BookController@bookindex');
 Route::get('/library/code/index/{user_id}', 'Api\CodeController@codeindex');
+
+Route::get('library/book/create/{isbn}', 'Api\BookController@bookcreate');
+Route::get('library/book/store/{user_id}/{book_id}/{book_title}/{book_contents}/{book_isbn}/{img_path}/{img_url}', 'Api\BookController@bookstore');
